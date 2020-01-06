@@ -21,3 +21,8 @@ vuejs playground
 ### mvvm
 view : 화면, hmlt(dom)
 dom listener : event -> change javascript data or run javascript logic
+
+## tip
+### vscode
+! : auto write html format
+div#app : auto write tag and id
