@@ -21,8 +21,12 @@ vuejs playground
 ### mvvm
 view : 화면, hmlt(dom)
 dom listener : event -> change javascript data or run javascript logic
+핵심 : 반응성 reactivity (Object.defineProperty())
 
 ## tip
 ### vscode
-! : auto write html format
-div#app : auto write tag and id
+* ! : auto write html format
+* div#app : auto write tag and id
+
+### etc
+* javascript -> mdn 주로 검색
