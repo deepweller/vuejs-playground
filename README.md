@@ -18,7 +18,9 @@
   - eslint
   - prettier
   - auto close tag
-  - atom keymap
+  - intellij keymap
+  - live server
+  - markdown preview
 
 ## vuejs
 
@@ -105,8 +107,38 @@ new Vue({
 });
 ```
 
-- emit -> 
+- emit -> v-on:하위 컴포넌트에서 발생한 이벤트 이름="상위 컴포넌트의 메서드 이름"
   - reactivity
+
+```html
+<app-content v-on:increase="increaseNumber"></app-content>
+```
+
+```javascript
+var appContent = {
+  template: '<button v-on:click="addNumber">add</button>',
+  methods: {
+      addNumber: function() {
+          this.$emit('increase');
+      }
+  }
+};
+
+var vm = new Vue({
+  el: "#app",
+  components: {
+    'app-content': appContent
+  },
+  methods: {
+    increaseNumber: function() {
+      this.num += 1;
+    }
+  },
+  data: {
+    num: 10
+  }
+});
+```
 
 ## tip
 
