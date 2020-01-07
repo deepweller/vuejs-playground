@@ -81,12 +81,14 @@ new Vue({
 
 - 상위(부모)컴포넌트, 하위(자식)컴포넌트
 - 컴포넌트는 각각 데이터를 갖는다. 컴포넌트간 데이터를 공유하기위해서는 이벤트 속성을 사용해야함. (props, emit)
-    - 데이터의 흐름을 추적할 수 있다.
+  - 데이터의 흐름을 추적할 수 있다.
 - props -> v-bind:프롭스 속성 이름="상위 컴포넌트의 데이터 이름"
-    - props도 reactivity
+  - reactivity
+
 ```html
 <app-header v-bind:propsdata="message"></app-header>
 ```
+
 ```javascript
 var appHeader = {
     template: '<h1>{{propsdata}}</h1>',
@@ -102,6 +104,9 @@ new Vue({
     }
 });
 ```
+
+- emit -> 
+  - reactivity
 
 ## tip
 
