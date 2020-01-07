@@ -141,6 +141,9 @@ var vm = new Vue({
 ```
 
 - 같은 레벨의 컴포넌트간 통신
+  - 상위컴포넌트로 event $emit
+  - 상위컴포넌트에서 data 로 받음
+  - 상위컴포넌트에서 다른 컴포넌트로 props 전달
 
 #### this
 ```javascript
