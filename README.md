@@ -140,6 +140,33 @@ var vm = new Vue({
 });
 ```
 
+- 같은 레벨의 컴포넌트간 통신
+
+#### this
+```javascript
+var obj = {
+  num: 10,
+  getNumber: function() {
+    console.log(this.num); //this = obj
+  }
+}
+
+var Vue = {
+  methods: {
+    getNumber: function() {
+      this.num //this = vue.data.*
+      //vue 의 data 에 담긴 데이터는 vue 의 어떠한 동작에 의해서 vue 바로 하위에 들어감
+      //console.log(Vue); 로 확인
+    }
+  },
+  el: '',
+  data: {
+    num: 10
+  }
+}
+
+```
+
 ## tip
 
 ### vscode
