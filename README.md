@@ -170,7 +170,7 @@ var Vue = {
 
 ```
 
-## 라우터
+### 라우터
 
 - spa, 페이지 이동을 위한 라이브러리
 - routes : 페이지의 라우팅 정보
@@ -194,12 +194,23 @@ new Vue({
 });
 ```
 
+#### 링크
+
+- `<router-link></router-link>` : a 태그로 변환
+
+```html
+<!-- == <a href="/login">Login</a> -->
+<router-link to="/login">Login</router-link>
+<router-link to="/main">Main</router-link to="/main">
+```
+
 ## tip
 
 ### vscode
 
 - ! : auto write html format
 - div#app : auto write tag and id (tag + css selector + attr)
+- router-link*2 = `<router-link></<router-link><router-link></<router-link>`
 
 ### etc
 
