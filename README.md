@@ -176,6 +176,7 @@ var Vue = {
 - routes : 페이지의 라우팅 정보
 - path : 페이지 url
 - component : url 로 갔을 때 보여질 컴포넌트
+- `mode: 'history'` : url 에 해시(#) 이 사라짐
 
 ```html
 <div id="app">
