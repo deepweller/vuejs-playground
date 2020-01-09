@@ -170,6 +170,13 @@ var Vue = {
 
 ```
 
+## 라우터
+
+- spa, 페이지 이동을 위한 라이브러리
+- routes : 페이지의 라우팅 정보
+- path : 페이지 url
+- component : url 로 갔을 때 보여질 컴포넌트
+
 ## tip
 
 ### vscode
