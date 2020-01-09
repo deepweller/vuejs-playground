@@ -177,6 +177,22 @@ var Vue = {
 - path : 페이지 url
 - component : url 로 갔을 때 보여질 컴포넌트
 
+```html
+<div id="app">
+  <router-view></router-view>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+```
+
+```javascript
+new Vue({
+  el: '#app',
+  router: myRouter
+});
+```
+
 ## tip
 
 ### vscode
