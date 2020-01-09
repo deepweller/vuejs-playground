@@ -181,6 +181,7 @@ var Vue = {
 <div id="app">
   <router-view></router-view>
 </div>
+<!-- 선언순서 -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
