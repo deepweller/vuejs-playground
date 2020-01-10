@@ -146,6 +146,7 @@ var vm = new Vue({
   - 상위컴포넌트에서 다른 컴포넌트로 props 전달
 
 #### this
+
 ```javascript
 var obj = {
   num: 10,
@@ -205,7 +206,30 @@ new Vue({
 <router-link to="/main">Main</router-link to="/main">
 ```
 
+### axios
+
+- 뷰에서 권고하는 http 통신 라이브러리
+  - https://github.com/pagekit/vue-resource : axios이전 사용하던 라이브러리(현재는 지원 X, 오래된 샘플에서 사용)
+  - ajax : 전체를 서버에서 받아오지 않고 부분만 비동기로 통신하는 방법
+- [axios github](https://github.com/axios/axios)
+  - promise 기반 nodejs, browser 의 http 클라이언트
+  - feature, browser 호환성 확인
+  - readme에서 내용 확인
+
 ## tip
+
+### javascript
+
+#### 비동기 처리 패턴
+
+- callback
+- promise
+- promise + generator
+- async & await
+- [자바스크립트 비동기 처리와 콜백 함수](https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/)
+- [자바스크립트 Promise 쉽게 이해하기](https://joshua1988.github.io/web-development/javascript/promise-for-beginners/)
+- [자바스크립트 async와 await](https://joshua1988.github.io/web-development/javascript/js-async-await/)
+
 
 ### vscode
 
@@ -216,3 +240,8 @@ new Vue({
 ### etc
 
 - javascript -> mdn 주로 검색
+- 깃헙 오픈소스 사용 시
+  - star 수 확인(인지도)
+  - commits, contributors 수 확인
+  - 최근 커밋 된 일시 확인
+  - readme
