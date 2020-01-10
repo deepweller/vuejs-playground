@@ -209,7 +209,7 @@ new Vue({
 ### axios
 
 - 뷰에서 권고하는 http 통신 라이브러리
-  - https://github.com/pagekit/vue-resource : axios이전 사용하던 라이브러리(현재는 지원 X, 오래된 샘플에서 사용)
+  - [https://github.com/pagekit/vue-resource](https://github.com/pagekit/vue-resource) : axios이전 사용하던 라이브러리(현재는 지원 X, 오래된 샘플에서 사용)
   - ajax : 전체를 서버에서 받아오지 않고 부분만 비동기로 통신하는 방법
 - [axios github](https://github.com/axios/axios)
   - promise 기반 nodejs, browser 의 http 클라이언트
@@ -229,7 +229,6 @@ new Vue({
 - [자바스크립트 비동기 처리와 콜백 함수](https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/)
 - [자바스크립트 Promise 쉽게 이해하기](https://joshua1988.github.io/web-development/javascript/promise-for-beginners/)
 - [자바스크립트 async와 await](https://joshua1988.github.io/web-development/javascript/js-async-await/)
-
 
 ### vscode
 
