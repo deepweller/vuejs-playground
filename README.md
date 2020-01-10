@@ -219,6 +219,8 @@ new Vue({
   - axios 호출 전 this : 호출 컴포넌트
   - axios 호출 후 this : window
   - [자바스크립트의 동작원리: 엔진, 런타임, 호출 스택](https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/)
+- 브라우저(클라이언트) : http 요청
+- 서버 : http 응답
 
 ## tip
 
