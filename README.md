@@ -215,6 +215,10 @@ new Vue({
   - promise 기반 nodejs, browser 의 http 클라이언트
   - feature, browser 호환성 확인
   - readme에서 내용 확인
+- this  
+  - axios 호출 전 this : 호출 컴포넌트
+  - axios 호출 후 this : window
+  - [자바스크립트의 동작원리: 엔진, 런타임, 호출 스택](https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/)
 
 ## tip
 
@@ -244,3 +248,6 @@ new Vue({
   - commits, contributors 수 확인
   - 최근 커밋 된 일시 확인
   - readme
+- test api 있는 곳
+  - [jsonplaceholder](https://jsonplaceholder.typicode.com/)
+  - 여기서 테스트 데이터 샘플로 이것저것 받아볼 수 있음
