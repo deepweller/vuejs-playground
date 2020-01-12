@@ -222,6 +222,26 @@ new Vue({
 - 브라우저(클라이언트) : http 요청
 - 서버 : http 응답
 
+### 템플릿 문법
+
+#### 데이터 바인딩
+
+- `{{ }}`
+- computed : data의 값에 따라 바뀌는 값을 정의할 때
+- 단순 표현식뿐만 아니라 dom 속성도 실시간으로 바꿔준다.
+
+```html
+<p v-bind:id="uuid" v-bind:class="name">{{ num }}</p>
+```
+
+#### 디렉티브
+
+- `v-xx`
+  - `v-bind`
+  - `v-if`, `v-else`
+  - `v-show` : if와 차이점 > if는 dom을 아예 제거하고, show는 `display: none` 으로 설정함
+
+
 ## tip
 
 ### javascript
@@ -253,3 +273,5 @@ new Vue({
 - test api 있는 곳
   - [jsonplaceholder](https://jsonplaceholder.typicode.com/)
   - 여기서 테스트 데이터 샘플로 이것저것 받아볼 수 있음
+- http
+  - [프런트엔드 개발자가 알아야하는 HTTP 프로토콜](https://joshua1988.github.io/web-development/http-part1/)
