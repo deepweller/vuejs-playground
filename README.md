@@ -2,9 +2,11 @@
 
 **vuejs playground ! ! !**
 
-## 강의
+## 내용
 
-[inflearn vuejs 시작하기](https://www.inflearn.com/course/Age-of-Vuejs)
+[강의 : inflearn vuejs 시작하기](https://www.inflearn.com/course/Age-of-Vuejs)
+강의 듣고 정리하기
+강의 듣고 
 
 ## 개발환경
 
