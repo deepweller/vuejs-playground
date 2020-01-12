@@ -226,7 +226,7 @@ new Vue({
 
 #### 데이터 바인딩
 
-- `{{ }}`
+- `{{ }}` : data 안에 있는 내용을 바인딩
 - computed : data의 값에 따라 바뀌는 값을 정의할 때
 - 단순 표현식뿐만 아니라 dom 속성도 실시간으로 바꿔준다.
 
@@ -240,6 +240,7 @@ new Vue({
   - `v-bind`
   - `v-if`, `v-else`
   - `v-show` : if와 차이점 > if는 dom을 아예 제거하고, show는 `display: none` 으로 설정함
+  - `v-model`
 
 
 ## tip
@@ -275,3 +276,6 @@ new Vue({
   - 여기서 테스트 데이터 샘플로 이것저것 받아볼 수 있음
 - http
   - [프런트엔드 개발자가 알아야하는 HTTP 프로토콜](https://joshua1988.github.io/web-development/http-part1/)
+- 필요정보 검색
+  - [vuejs 공식 페이지](https://vuejs.org/)
+  - 검색창에서 검색

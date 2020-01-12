@@ -20,17 +20,24 @@
         <div v-show="loading">
             Loading...
         </div>
+        <!-- todo: 인풋박스를 만들고 입력된 값을 p태그에 출력 -->
+        <input type="text" v-model="message">
+        <p>{{ message }}</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
+        // var input = document.querySelector('input');
+        // var input = $('input');
+        
         new Vue({
             el: '#app',
             data: {
                 num: 10,
                 uuid: 'test1',
                 name: 'text-blue',
-                loading: true
+                loading: true,
+                message: ''
             },
             //data의 값에 따라 바뀌는 값을 정의할 ㅅ때
             computed: {
