@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{ num }}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        num: 10
+      },
+      computed: {
+        //data 속성 중 num 이라는 속성을 변화시킴 doubleNum 을 {{ }} 로 표현할 수 있음
+        doubleNum: function() {
+          return this.num * 2;
+        }
+      },
+      watch: {
+        //이전값, 새로운값을 다 인자로 받을 수 있음
+        num: function(newValue, oldValue) {
+          this.fetchUserByNumber(newValue, oldValue);
+        }
+      },
+      methods: {
+        fetchUserByNumber: function(num, test) {
+          console.log(num);
+          console.log(test);
+          // axios.get(num);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

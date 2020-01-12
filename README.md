@@ -226,8 +226,8 @@ new Vue({
 
 #### 데이터 바인딩
 
-- `{{ }}` : data 안에 있는 내용을 바인딩
-- computed : data의 값에 따라 바뀌는 값을 정의할 때
+- `{{ }}` : data 속성 안에 있는 내용을 바인딩
+- computed : data 속성 내의 값에 따라 바뀌는 값을 정의할 때
 - 단순 표현식뿐만 아니라 dom 속성도 실시간으로 바꿔준다.
 
 ```html
@@ -243,6 +243,40 @@ new Vue({
   - `v-model`
   - `v-on` : `v-on:click`, `v-on:keyup`, `v-on:keyup.enter`
 
+#### watch
+
+- data 속성 내 값의 변화에 따라서 특정 로직을 실행시킬 수 있음
+
+```javascript
+new Vue({
+  el: '#app',
+  data: {
+    num: 10
+  },
+  watch: {
+    num: function() {
+      this.logText();
+    }
+  },
+  methods: {
+    logText: function() {
+      console.log('changed');
+    }
+  }
+})
+```
+
+- computed와 차이점
+  - computed
+    - computed 는 data 속성에 의존성이 있다. 
+    - 빠르게 계산
+    - 캐싱
+    - validation에 유용
+  - watch
+    - watch 는 특정 로직을 수행
+    - 무거운 로직을 수행
+  - computed가 대부분의 경우에 적합하다. computed를 추천함. watch는 조금 지저분한 코드가 될 수 있음.
+  - [공식문서 참고](https://kr.vuejs.org/v2/guide/computed.html#computed-%EC%86%8D%EC%84%B1-vs-watch-%EC%86%8D%EC%84%B1)
 
 ## tip
 
