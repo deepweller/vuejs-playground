@@ -241,6 +241,7 @@ new Vue({
   - `v-if`, `v-else`
   - `v-show` : if와 차이점 > if는 dom을 아예 제거하고, show는 `display: none` 으로 설정함
   - `v-model`
+  - `v-on` : `v-on:click`, `v-on:keyup`, `v-on:keyup.enter`
 
 
 ## tip
