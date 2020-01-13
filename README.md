@@ -288,6 +288,7 @@ new Vue({
 - [vue-cli](https://cli.vuejs.org)
 - nodejs version 10 이상
 - npm version 6 이상
+  - update : `npm i -g npm to update`
 
 ```bash
 node -v
