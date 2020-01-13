@@ -317,6 +317,55 @@ cd vue-cli
 npm run serve
 ```
 
+### 디렉터리 구조
+
+#### npm
+
+- 노드 패키지 매니저
+  - 라이브러리 디펜던시
+  - `npm run serve` : package.json 내의 serve 명령어 수행
+  
+#### index.html
+
+- div#app
+- built files will be auto injected : 모든 파일을 빌드 후 index.html에 주입된다.
+  - webpack !
+
+#### main.js
+
+- new Vue()
+- `el: '#app'` == `.$mount('#app')`
+
+### 싱글파일 컴포넌트
+
+- .vue 파일
+- 한 파일 내에서 dom, script, style 을 관리하는 구조
+
+```vue
+<template>
+  <!-- html -->
+  <div>header</div>
+</template>
+
+<script>
+export default {
+  // javascript, 인스턴스 옵션
+  methods: {
+    addNum: function(num) {
+      return num++;
+    }
+  }
+};
+</script>
+
+<style>
+/* css */
+</style>
+```
+
+- App.vue
+- HelloWorld.vue
+
 ## tip
 
 ### javascript
@@ -336,6 +385,7 @@ npm run serve
 - ! : auto write html format
 - div#app : auto write tag and id (tag + css selector + attr)
 - router-link*2 = `<router-link></<router-link><router-link></<router-link>`
+- vue 파일에서 vue(scf) 입력하면 기본 구조가 스케폴딩됨
 
 ### etc
 
