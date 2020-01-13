@@ -364,6 +364,8 @@ export default {
 ```
 
 - App.vue
+  - template, script, style
+  - HelloWorld : component
 - HelloWorld.vue
 
 ## tip
