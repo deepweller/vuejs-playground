@@ -309,6 +309,12 @@ npm install -g @vue/cli
 #### 3.x
 
 - `vue create '프로젝트 위치'`
+  - `vue create vue-cli`
+
+```bash
+cd vue-cli
+npm run serve
+```
 
 ## tip
 
