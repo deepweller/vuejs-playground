@@ -280,6 +280,36 @@ new Vue({
   - computed가 대부분의 경우에 적합하다. computed를 추천함. watch는 조금 지저분한 코드가 될 수 있음.
   - [공식문서 참고](https://kr.vuejs.org/v2/guide/computed.html#computed-%EC%86%8D%EC%84%B1-vs-watch-%EC%86%8D%EC%84%B1)
 
+## vue cli
+
+### 설치
+
+- vue command line interface 명령어 실행도구
+- [vue-cli](https://cli.vuejs.org)
+- nodejs version 10 이상
+- npm version 6 이상
+
+```bash
+node -v
+npm -v
+npm install -g @vue/cli
+```
+
+- 설치 시 퍼미션 에러
+  - 설치 폴더에 w 권한이 필요 (sudo 권한으로 설치 명령 실행)
+- 설치경로 `/usr/local/lib/node_modules`, `npm list -g`
+
+### vue cli 2.x, 3.x 차이
+
+#### 2.x
+
+- `vue init '프로젝트 템플릿 유형' '프로젝트 폴더 위치'`
+  - `vue init webpack-simple '프로젝트 폴더 위치'`
+
+#### 3.x
+
+- `vue create '프로젝트 위치'`
+
 ## tip
 
 ### javascript
