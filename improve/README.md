@@ -7,15 +7,9 @@
 ## 개발환경
 
 - chrome
-  - vuejs devtool extension
-- node stable
+- npm
 - vscode
-  - vetur
-  - night owl
-  - material icon theme
-  - eslint
-  - prettier
-  - auto close tag
-  - intellij keymap
-  - live server
-  - markdown preview
+  - 기본과 동일
+  - tslint
+- vue
+- github
