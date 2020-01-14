@@ -266,7 +266,7 @@ new Vue({
 
 - computed와 차이점
   - computed
-    - computed 는 data 속성에 의존성이 있다. 
+    - computed 는 data 속성에 의존성이 있다.
     - 빠르게 계산
     - 캐싱
     - validation에 유용
@@ -381,6 +381,10 @@ export default {
 - [자바스크립트 비동기 처리와 콜백 함수](https://joshua1988.github.io/web-development/javascript/javascript-asynchronous-operation/)
 - [자바스크립트 Promise 쉽게 이해하기](https://joshua1988.github.io/web-development/javascript/promise-for-beginners/)
 - [자바스크립트 async와 await](https://joshua1988.github.io/web-development/javascript/js-async-await/)
+
+#### 이벤트 버블링, 캡처
+
+- [이벤트 버블링, 이벤트 캡처 그리고 이벤트 위임](https://joshua1988.github.io/web-development/javascript/event-propagation-delegation/)
 
 ### vscode
 
