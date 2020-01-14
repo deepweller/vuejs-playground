@@ -31,7 +31,13 @@
 </template>
 
 <script>
+var appContent = {
+  props: ['propsdata']
+}
+
+//위와 동일한 의미
 export default {
+  // 인스턴스 옵션 속성
   name: 'HelloWorld',
   props: {
     msg: String
