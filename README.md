@@ -364,7 +364,11 @@ export default {
 ```
 
 - App.vue
+  - template, script, style
+  - HelloWorld : component
+  - 파일 코멘트확인
 - HelloWorld.vue
+  - 파일 코멘트확인
 
 ## tip
 
