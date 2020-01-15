@@ -13,3 +13,11 @@
   - tslint
 - vue
 - github
+- [스타일가이드](https://vuejs.org/v2/style-guide/)
+
+## application 제작
+
+- [hacker news](https://news.ycombinator.com/)
+  - show, ask, jobs 페이지 사용
+- api: [hacker news api](https://github.com/tastejs/hacker-news-pwas/blob/master/docs/api.md)
+  - show, ask, jobs api 사용
