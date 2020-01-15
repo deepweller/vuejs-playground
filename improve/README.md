@@ -63,3 +63,11 @@
 - src/views 폴더
   - 라우터에 들어가는 컴포넌트(화면) 이 들어갈 dir
   - .vue 파일들
+- `<router-link></router-link>` : a tag 치환
+- `import { router } from './router/index.js';` 와 `import router from './router/index.js';` 의 차이
+
+#### component
+
+- `<ToolBar></ToolBar>` vs `<tool-bar></tool-bar>`
+  - 카멜케이스 : 대문자로 시작하기 때문에 명시적으로 컴포넌트로 알 수 있음, vue에서 강력하게 권장함.
+  - 케밥케이스 : 타이핑 시 자동완성이 되서 생산성에 좋음, cmd + click으로 파일도 찾아가기 원활함.
