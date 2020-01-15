@@ -42,4 +42,24 @@
     - 3.x: 필요
 - `vue create vue-news` 프로젝트 생성
   - preset : 프로젝트 시작을 위한 기본 플러그인 구성
-  - babel : es6 변환, eslint: 스타일체크
+  - babel : es6 변환, eslint: 문법체크
+- `npm run serve` 로컬 웹서버 실행
+- eslint
+  - javascript syntax helper
+  - ignore error
+    - `/* eslint-disable */` 컴포넌트 스크립트마다 입력
+    - `vue-news/vue.config.js` 생성 후 아래 코드 입력
+    - [lintOnSave](https://cli.vuejs.org/config/#pages)
+
+### router 추가
+
+- `npm i vue-router --save`
+- package.json 내에 dependencies에 추가
+  - 배포할때도 필요한 라이브러리가 위치해야함.
+- main.js
+  - main.js는 어플리케이션의 설정, 플러그인, 라이브러리 등을 표현할 수 있는 청사진 구조여야함
+  - 라우터는 분리하는 것이 좋음
+  - `src/router/index.js`
+- src/views 폴더
+  - 라우터에 들어가는 컴포넌트(화면) 이 들어갈 dir
+  - .vue 파일들
