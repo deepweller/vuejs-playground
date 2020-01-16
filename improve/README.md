@@ -73,4 +73,4 @@
   - 케밥케이스 : 타이핑 시 자동완성이 되서 생산성에 좋음, cmd + click으로 파일도 찾아가기 원활함.
 - test
 - `<style scoped>` : 해당 컴포넌트에만 스타일이 적용되도록 하는 옵션
-  - `display: flex;` : https://webdir.tistory.com/349
+  - `display: flex;` : https://heropy.blog/2018/11/24/css-flexible-box/ | https://webdir.tistory.com/349
