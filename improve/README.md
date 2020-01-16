@@ -81,3 +81,17 @@
 
 - views : routing 정보만 담은 화면 컴포넌트, axios나 로직이 들어가면 안됨. 페이지 역할을 하는 컴포넌트는 데이터를 fetch 하는 로직이 들어가면 좋지 않음
   - views 컴포넌트는 유연하게 대응할 수 있어야함
+  
+  
+## es6
+
+### template string
+
+```javascript
+const config = {
+  baseUrl: 'https://api.hnpwa.com/v0'
+};
+
+return axios.get(config.baseUrl + '/news/1.json');
+return axios.get(`${config.baseUrl}/news/1.json`);
+```
