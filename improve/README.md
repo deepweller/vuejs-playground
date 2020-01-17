@@ -82,6 +82,21 @@
 - views : routing 정보만 담은 화면 컴포넌트, axios나 로직이 들어가면 안됨. 페이지 역할을 하는 컴포넌트는 데이터를 fetch 하는 로직이 들어가면 좋지 않음
   - views 컴포넌트는 유연하게 대응할 수 있어야함
   
+#### lifecycle
+
+- component가 생성되자마자 실행되는 로직
+
+```javascript
+created: function() {
+}
+created() {
+}
+```
+
+- beforMount: created와 같이 data를 받아올 때 주로 사용
+- mounted
+  - 마운트 후에 data 속성에 할당하게 되면, 뷰의 reactivity에 의하여 화면이 다시 그려지게 된다.
+  - https://vuejs.org/v2/guide/reactivity.html#ad
   
 ## es6
 
@@ -94,4 +109,20 @@ const config = {
 
 return axios.get(config.baseUrl + '/news/1.json');
 return axios.get(`${config.baseUrl}/news/1.json`);
+```
+
+### =>
+
+```javascript
+var vm = this;
+fetchJobsList()
+  .then(function(response) {
+    vm.jobs = response.data;
+  })
+  .catch(function(error) {});
+}
+//위 아래 동일
+fetchJobsList()
+  .then(response => this.jobs = response.data)
+  .catch(error => console.log(error));
 ```
