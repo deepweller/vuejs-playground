@@ -126,3 +126,47 @@ fetchJobsList()
   .then(response => this.jobs = response.data)
   .catch(error => console.log(error));
 ```
+
+### this
+
+- 가장 최상단 객체 window
+- 전역범위. (다른 언어에서의 this는 지역범위에서 확장되는것과 반대)
+
+```javascript
+console.log(this); //window
+```
+
+```javascript
+function sum(a, b) {
+  console.log(this); //window
+  return a + b;
+}
+```
+
+```javascript
+'use strict'
+function sum(a, b) {
+  console.log(this); //undefined
+  return a + b;
+}
+```
+
+```javascript
+function Vue(el) {
+  console.log(this); //Vue {}, 함수 객체 자체
+  this.el = el;
+}
+```
+
+```javascript
+console.log(this); //VueComponent
+fetchAskList()
+.then(function(response) {
+  console.log(this); //undefined
+})
+.catch(function(error) {});
+```
+
+- 비동기 호출 : 기존 this를 벗어난 this가 생성됨.
+- => 함수 : this가 비동기 함수 내 this가 아닌 원래의 객체 this를 가리킴.
+  - => 함수 추천!
