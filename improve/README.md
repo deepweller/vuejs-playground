@@ -117,11 +117,20 @@ created() {
 
 #### mutation
 
-- 액션에서 받아온 api 결과 데이터를 state 에 담아줌.
+- 액션에서 받아온 api 결과 데이터를 state로 전달.
 
 #### state
 
 - 컴포넌트에서 공유가능
+
+#### 정리
+
+- component >> api >> actions >> mutation >> state >> component
+  - component >> api : this.$store.dispatch('액션명');
+  - api >> actions : api/index.js 사용(axios)
+  - actions >> mutation : context.commit('mutation명', 전달데이터)
+  - mutation >> state : state.스테이트명 = 전달데이터;
+  - state >> component : this.$store.state.스테이트명
   
 ## es6
 
