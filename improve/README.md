@@ -136,6 +136,7 @@ created() {
 ```
 
 - mapstate or computed 사용
+- ...: https://joshua1988.github.io/es6-online-book/spread-operator.html 참고
 
 ```javascript
 import { mapState } from "vuex";
