@@ -11,7 +11,7 @@
 - vscode
   - 기본과 동일
   - tslint
-- vue
+- vue, vue-router, vuex
 - github
 - [스타일가이드](https://vuejs.org/v2/style-guide/)
 
