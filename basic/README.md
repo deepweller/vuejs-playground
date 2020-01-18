@@ -286,7 +286,7 @@ new Vue({
 - npm version 6 이상
   - update : `npm i -g npm to update`
 
-```bash
+```shell script
 node -v
 npm -v
 npm install -g @vue/cli
@@ -308,7 +308,7 @@ npm install -g @vue/cli
 - `vue create '프로젝트 위치'`
   - `vue create vue-cli`
 
-```bash
+```shell script
 cd vue-cli
 npm run serve
 ```

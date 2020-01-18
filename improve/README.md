@@ -170,3 +170,51 @@ fetchAskList()
 - 비동기 호출 : 기존 this를 벗어난 this가 생성됨.
 - => 함수 : this가 비동기 함수 내 this가 아닌 원래의 객체 this를 가리킴.
   - => 함수 추천!
+
+### 비동기처리
+
+#### callback
+
+- 함수 종료시에 실행되는 함수
+- 함수를 파라미터로 전달하고 그 함수가 콜백함수
+
+```javascript
+var result = [];
+//jquery
+$.ajax({
+  url: 'https://www.naver.com/api/',
+  succcess: function(data) {
+    result = data;
+  }
+});
+console.log(result); //[]
+```
+
+#### promise
+
+- then, cathc 체이닝을 위해서는 상위 함수가 promise 객체를 리턴해줘야함
+- promise는 resolve, reject를 파라미터로 가짐
+
+```javascript
+function callAjax() {
+  return new Promise(function(resolve, reject) {
+    $.ajax({
+      url: 'https://www.naver.com/api/',
+      succcess: function(data) {
+        resolve(data); //resolve -> then() 으로 연결
+      }
+    });
+  });
+}
+
+function fetchData() {
+  callAjax()
+    .then(function(data) {
+      console.log(data);
+    })
+}
+```
+
+## tip
+
+- chrome network tap 에서 `Online` > `slow 3g` 로 하면 데이터를 느리게 받아올 수 있음
