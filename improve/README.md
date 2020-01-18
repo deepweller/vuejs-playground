@@ -100,6 +100,7 @@ created() {
 
 ### vuex
 
+![vuex](./imgs/vuex.png)
 - 상태관리도구
   - 여러 컴포넌트에서 공유되는 속성
   - 컴포넌트 레벨이 복잡해 졌을 때 컴포넌트간 데이터 공유가 용이해짐
@@ -107,6 +108,20 @@ created() {
   - api -> newsView >>> api -> vuex -> newsView
   - vuex의 state에 값을 담아서 화면에 표시
 - 설치: `npm i vuex`
+- store 패키지 하위에 생성
+
+#### action
+
+- 비동기 호출
+- context 인자로 mutation을 호출
+
+#### mutation
+
+- 액션에서 받아온 api 결과 데이터를 state 에 담아줌.
+
+#### state
+
+- 컴포넌트에서 공유가능
   
 ## es6
 
