@@ -65,6 +65,9 @@
   - .vue 파일들
 - `<router-link></router-link>` : a tag 치환
 - `import { router } from './router/index.js';` 와 `import router from './router/index.js';` 의 차이
+  - export default를 {} 없이 받아올 수 있음
+  - export default는 한개만 export할 수 있음
+  - 나머지 export는 name 을 {}로 묶어서 사용
 
 #### component
 
@@ -122,6 +125,57 @@ created() {
 #### state
 
 - 컴포넌트에서 공유가능
+
+#### getters
+
+- vuex에 있는 computed와 동일한 속성
+- {{ }} 사용
+
+```html
+<div v-for="item in this.$store.state.news">{{ item.title }}</div>
+```
+
+- mapstate or computed 사용
+
+```javascript
+import { mapState } from "vuex";
+export default {
+  computed: {
+    ...mapState({
+      asks: state => state.asks
+    })
+    // ask() {
+    //   return this.$store.state.asks;
+    // }
+  },
+  created() {
+    this.$store.dispatch("FETCH_ASK");
+  }
+};
+```
+- vuex getter 사용
+
+```javascript
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters({
+      asks: 'fetchedAsk'
+    })
+  },
+  created() {
+    this.$store.dispatch("FETCH_ASK");
+  }
+};
+
+//store
+getters: {
+  fetchedAsk(state) {
+    return state.asks;
+  }
+}
+```
+
 
 #### 정리
 
@@ -246,6 +300,29 @@ function fetchData() {
     .then(function(data) {
       console.log(data);
     })
+}
+```
+
+### Destructuring
+
+- 구조 분해 문법
+- https://joshua1988.github.io/es6-online-book/destructuring.html
+
+```javascript
+FETCH_ASK(context) {
+      fetchAskList()
+        .then(res => {
+          context.commit('SET_ASK', res.data);
+        })
+        .catch();
+    },
+//위와 동일    
+FETCH_JOBS({ commit }) {
+  fetchJobsList()
+    .then(({ data }) => {
+      commit('SET_JOBS', data);
+    })
+    .catch();
 }
 ```
 
