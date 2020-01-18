@@ -97,6 +97,16 @@ created() {
 - mounted
   - 마운트 후에 data 속성에 할당하게 되면, 뷰의 reactivity에 의하여 화면이 다시 그려지게 된다.
   - https://vuejs.org/v2/guide/reactivity.html#ad
+
+### vuex
+
+- 상태관리도구
+  - 여러 컴포넌트에서 공유되는 속성
+  - 컴포넌트 레벨이 복잡해 졌을 때 컴포넌트간 데이터 공유가 용이해짐
+- 컴포넌트마다 api를 불러오지 않도록 변경
+  - api -> newsView >>> api -> vuex -> newsView
+  - vuex의 state에 값을 담아서 화면에 표시
+- 설치: `npm i vuex`
   
 ## es6
 
