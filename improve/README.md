@@ -186,7 +186,15 @@ getters: {
   - actions >> mutation : context.commit('mutation명', 전달데이터)
   - mutation >> state : state.스테이트명 = 전달데이터;
   - state >> component : this.$store.state.스테이트명
-  
+
+### 다이나믹 라우터 매칭
+
+- https://router.vuejs.org/guide/essentials/dynamic-matching.html
+- route
+  - `path: /user/:id`
+- view
+  - `<router-link v-bind:to="`/user/${item.user}`">{{ item.user }}</router-link>`
+
 ## es6
 
 ### template string
