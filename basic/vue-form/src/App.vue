@@ -11,11 +11,13 @@
     </div>
     <!-- event 버블링, 캡쳐링 -->
     <button type="submit">login</button>
+    <Test></Test>
   </form>
 </template>
 
 <script>
 import axios from "axios";
+import Test from './Test.vue';
 
 export default {
   //컴포넌트간 데이터가 공유되지 않도록 function return 으로 새 객체를 리턴해주도록 한다.
@@ -24,6 +26,9 @@ export default {
       username: "",
       password: ""
     };
+  },
+  components: {
+    Test
   },
   methods: {
     submitForm: function() {
