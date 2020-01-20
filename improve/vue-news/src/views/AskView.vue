@@ -13,7 +13,11 @@
               {{ ask.title }}
             </router-link>
           </p>
-          <small class="link-text">{{ ask.time_ago }} by {{ ask.user }}</small>
+
+          <small class="link-text">
+            by
+            <router-link class="link-text" v-bind:to="`/user/${ask.user}`">{{ ask.user }}</router-link> {{ ask.time_ago }}
+          </small>
         </div>
       </li>
     </ul>
