@@ -177,7 +177,6 @@ getters: {
 }
 ```
 
-
 #### 정리
 
 - component >> api >> actions >> mutation >> state >> component
@@ -207,6 +206,27 @@ getters: {
 - html 태그 변환
 - https://vuejs.org/v2/guide/syntax.html#Raw-HTML
 - https://vuejs.org/v2/api/#v-html
+
+### router transitions
+
+- 라우터 뷰를 트랜지션으로 감싸서 사용하면 뷰 내부적으로 트랜지션 이펙트를 사용할 수 있음
+- https://router.vuejs.org/guide/advanced/transitions.html#per-route-transition
+- https://vuejs.org/v2/guide/transitions.html
+
+```html
+<transition name="page">
+  <router-view></router-view>
+</transition>
+
+<style>
+.page-enter-active, .page-leave-active {
+  transition: opacity .5s;
+}
+.page-enter, .page-leave-to {
+  opacity: 0;
+}
+</style>
+```
 
 ## es6
 
