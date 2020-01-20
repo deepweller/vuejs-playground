@@ -201,6 +201,8 @@ getters: {
   - https://webdesign.tutsplus.com/ko/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984
 - `display: flex;`
   - https://heropy.blog/2018/11/24/css-flexible-box/
+- 공용 태그 스타일링 : App.vue
+- 각각 컴포넌트 스타일링 : <style scoped>
 
 #### v-html
 - html 태그 변환
@@ -227,6 +229,10 @@ getters: {
 }
 </style>
 ```
+
+### 컴포넌트 설계
+
+- 
 
 ## es6
 
