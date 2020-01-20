@@ -1,5 +1,10 @@
 <template>
-  <div>{{ askItem }}</div>
+  <div>
+    <p>{{ askItem.title }}</p>
+    <div>
+      {{ askItem.content }}
+    </div>
+  </div>
 </template>
 
 <script>
@@ -10,7 +15,7 @@ export default {
     }
   },
   created() {
-    const itemId = this.$route.query.id;
+    const itemId = this.$route.params.id;
     this.$store.dispatch('FETCH_ASK_ITEM', itemId);
   }
 }
