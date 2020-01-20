@@ -41,6 +41,7 @@ export default {
   margin: 0;
 }
 .link-text {
+  margin-left: 4px;
   color: #828282;
 }
 </style>
