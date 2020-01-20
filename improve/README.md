@@ -195,6 +195,19 @@ getters: {
 - view
   - `<router-link v-bind:to="`/user/${item.user}`">{{ item.user }}</router-link>`
 
+### 스타일링
+
+- 아이콘 : https://fontawesome.com/
+- rem vs em vs px
+  - https://webdesign.tutsplus.com/ko/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984
+- `display: flex;`
+  - https://heropy.blog/2018/11/24/css-flexible-box/
+
+#### v-html
+- html 태그 변환
+- https://vuejs.org/v2/guide/syntax.html#Raw-HTML
+- https://vuejs.org/v2/api/#v-html
+
 ## es6
 
 ### template string
