@@ -2,20 +2,26 @@
   <div>
     <!-- this.$store.state.jobs : 속성에 접근횟수가 많아짐 >> mapGetters 사용 -->
     <!-- <div v-for="ask in asks">{{ ask.title }}</div> -->
-    <p v-for="ask in asks">
-      <!-- <a v-bind:href="ask.url">
-        {{ ask.title }}
-      </a> -->
-      <router-link v-bind:to="`item/${ask.id}`">
-        {{ ask.title }}
-      </router-link>
-      <small>{{ ask.time_ago }} by {{ ask.user }}</small>
-    </p>
+    <ul class="ask-list">
+      <li v-for="ask in asks" class="ask">
+        <div class="points">
+          {{ ask.points }}
+        </div>
+        <div>
+          <p class="ask-title">
+            <router-link v-bind:to="`item/${ask.id}`">
+              {{ ask.title }}
+            </router-link>
+          </p>
+          <small class="link-text">{{ ask.time_ago }} by {{ ask.user }}</small>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapGetters } from 'vuex';
 export default {
   computed: {
     ...mapGetters({
@@ -29,9 +35,34 @@ export default {
     // }
   },
   created() {
-    this.$store.dispatch("FETCH_ASK");
+    this.$store.dispatch('FETCH_ASK');
   }
 };
 </script>
 
-<style></style>
+<style>
+.ask-list {
+  margin: 0;
+  padding: 0;
+}
+.ask {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.points {
+  width: 80px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #42b883;
+}
+.ask-title {
+  margin: 0;
+}
+.link-text {
+  color: #828282;
+}
+</style>

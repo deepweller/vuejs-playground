@@ -1,16 +1,22 @@
 <template>
   <div>
-    <p v-for="job in this.$store.state.jobs">
-      <a v-bind:href="job.url">
-        {{ job.title }}
-      </a>
-      <small>{{ job.time_ago }}, {{ job.domain }}</small>
-    </p>
+    <ul class="jobs-list">
+      <li v-for="job in this.$store.state.jobs">
+        <div class="job">
+          <p class="jobs-title">
+            <a v-bind:href="job.url">
+              {{ job.title }}
+            </a>
+          </p>
+          <small class="link-text">{{ job.time_ago }}, {{ job.domain }}</small>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import { fetchJobsList } from "../api/index.js";
+import { fetchJobsList } from '../api/index.js';
 
 export default {
   created() {
@@ -19,4 +25,22 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.jobs-list {
+  margin: 0;
+  padding: 0;
+}
+.job {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 8px;
+}
+.jobs-title {
+  margin: 0;
+}
+.link-text {
+  color: #828282;
+}
+</style>
