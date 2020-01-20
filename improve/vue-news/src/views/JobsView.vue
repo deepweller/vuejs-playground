@@ -8,7 +8,7 @@
               {{ job.title }}
             </a>
           </p>
-          <small class="link-text">{{ job.time_ago }}, {{ job.domain }}</small>
+          <small class="link-text">{{ job.time_ago }}, <a v-bind:href="job.url">{{ job.domain }}</a></small>
         </div>
       </li>
     </ul>
@@ -16,8 +16,6 @@
 </template>
 
 <script>
-import { fetchJobsList } from '../api/index.js';
-
 export default {
   created() {
     this.$store.dispatch('FETCH_JOBS');
