@@ -1,17 +1,31 @@
 <template>
   <div>
     <ul class="item-list">
-      <li v-for="item in this.$store.state.news" class="item">
+      <li v-for="item in items" class="item">
         <div class="points">
-          {{ item.points }}
+          {{ item.points || 0 }}
         </div>
         <div>
           <p class="item-title">
-            <a v-bind:href="item.url">{{ item.title }}</a>
+            <template v-if="item.domain">
+              <a v-bind:href="item.url">{{ item.title }}</a>
+            </template>
+            <template v-else>
+              <router-link v-bind:to="`item/${item.id}`">
+                {{ item.title }}
+              </router-link>
+            </template>
           </p>
           <small class="link-text">
-            by
-            <router-link class="link-text" v-bind:to="`/user/${item.user}`">{{ item.user }}</router-link> {{ item.time_ago }}
+            <router-link
+              v-if="item.user"
+              class="link-text"
+              v-bind:to="`/user/${item.user}`"
+              >{{ item.time_ago }} by {{ item.user }}</router-link
+            >
+            <a v-else :href="item.url">
+              {{ item.time_ago }} in {{ item.domain }}
+            </a>
           </small>
         </div>
       </li>
@@ -22,7 +36,29 @@
 <script>
 export default {
   created() {
-    this.$store.dispatch('FETCH_NEWS');
+    const routeName = this.$route.name;
+    let actionName = '';
+    // if(this.$route.path === '/news') {
+    if (routeName === 'news') {
+      actionName = 'FETCH_NEWS';
+    } else if (routeName === 'ask') {
+      actionName = 'FETCH_ASK';
+    } else if (routeName === 'jobs') {
+      actionName = 'FETCH_JOBS';
+    }
+    this.$store.dispatch(actionName);
+  },
+  computed: {
+    items() {
+      const routeName = this.$route.name;
+      if (routeName === 'news') {
+        return this.$store.state.news;
+      } else if (routeName === 'ask') {
+        return this.$store.state.asks;
+      } else if (routeName === 'jobs') {
+        return this.$store.state.jobs;
+      }
+    }
   }
 };
 </script>
