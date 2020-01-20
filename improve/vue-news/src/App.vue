@@ -4,7 +4,9 @@
     <!-- <ToolBar></ToolBar> -->
     <!-- 자동완성은 케밥케이스로 자동완성이 되서 생산성에 좋음, cmd + click으로 파일도 찾아가기 원활함 -->
     <tool-bar></tool-bar>
-    <router-view></router-view>
+    <transition name="page">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -21,5 +23,11 @@ export default {
 body {
   padding: 0;
   margin: 0;
+}
+.page-enter-active, .page-leave-active {
+  transition: opacity .5s;
+}
+.page-enter, .page-leave-to {
+  opacity: 0;
 }
 </style>
