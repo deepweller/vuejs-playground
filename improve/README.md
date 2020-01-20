@@ -177,7 +177,6 @@ getters: {
 }
 ```
 
-
 #### 정리
 
 - component >> api >> actions >> mutation >> state >> component
@@ -194,6 +193,40 @@ getters: {
   - `path: /user/:id`
 - view
   - `<router-link v-bind:to="`/user/${item.user}`">{{ item.user }}</router-link>`
+
+### 스타일링
+
+- 아이콘 : https://fontawesome.com/
+- rem vs em vs px
+  - https://webdesign.tutsplus.com/ko/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984
+- `display: flex;`
+  - https://heropy.blog/2018/11/24/css-flexible-box/
+
+#### v-html
+- html 태그 변환
+- https://vuejs.org/v2/guide/syntax.html#Raw-HTML
+- https://vuejs.org/v2/api/#v-html
+
+### router transitions
+
+- 라우터 뷰를 트랜지션으로 감싸서 사용하면 뷰 내부적으로 트랜지션 이펙트를 사용할 수 있음
+- https://router.vuejs.org/guide/advanced/transitions.html#per-route-transition
+- https://vuejs.org/v2/guide/transitions.html
+
+```html
+<transition name="page">
+  <router-view></router-view>
+</transition>
+
+<style>
+.page-enter-active, .page-leave-active {
+  transition: opacity .5s;
+}
+.page-enter, .page-leave-to {
+  opacity: 0;
+}
+</style>
+```
 
 ## es6
 
