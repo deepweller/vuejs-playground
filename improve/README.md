@@ -242,8 +242,6 @@ getters: {
 - props로 받은 데이터 형식이 약간씩 다를 때
   - slot 태그 사용
   - `v-if`로 구분하지 않고, 컴포넌트 등록할 때 필요한 내용을 채움
-  - 
-
 - component (userProfile)
 
 ```html
@@ -260,7 +258,7 @@ getters: {
 <user-profile :info="userInfo">
   <div slot="username">{{ userInfo.id }}</div>
   <template slot="time">{{ userInfo.created }}</template>
- <div slot="karma">{{ userInfo.karma }}</div>
+  <div slot="karma">{{ userInfo.karma }}</div>
 </user-profile>
 ```
 
