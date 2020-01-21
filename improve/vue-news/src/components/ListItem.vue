@@ -17,15 +17,18 @@
             </template>
           </p>
           <small class="link-text">
-            <router-link
-              v-if="item.user"
-              class="link-text"
-              v-bind:to="`/user/${item.user}`"
-              >{{ item.time_ago }} by {{ item.user }}</router-link
-            >
-            <a v-else :href="item.url">
-              {{ item.time_ago }} in {{ item.domain }}
-            </a>
+            <template v-if="item.user">
+              {{ item.time_ago }} by
+              <router-link class="link-text" v-bind:to="`/user/${item.user}`">{{
+                item.user
+              }}</router-link>
+            </template>
+            <template v-else>
+              {{ item.time_ago }} in
+              <a :href="item.url">
+                {{ item.domain }}
+              </a>
+            </template>
           </small>
         </div>
       </li>
