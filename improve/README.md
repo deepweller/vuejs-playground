@@ -232,7 +232,12 @@ getters: {
 
 ### 컴포넌트 설계
 
-- 
+- view에서 component를 사용
+
+![vuex](./imgs/component-design.png)
+
+1. view에서 props로 component에 데이터를 넘겨줌
+2. view에서 조회한 store.state를 component에서 그대로 사용
 
 ## es6
 
