@@ -239,6 +239,40 @@ getters: {
 1. view에서 props로 component에 데이터를 넘겨줌
 2. view에서 조회한 store.state를 component에서 그대로 사용
 
+- props로 받은 데이터 형식이 약간씩 다를 때
+  - slot 태그 사용
+  - `v-if`로 구분하지 않고, 컴포넌트 등록할 때 필요한 내용을 채움
+  - 
+
+- component (userProfile)
+
+```html
+<slot name="username"></slot>
+  <div class="time">
+    <slot name="time"></slot>
+  </div>
+<slot name="karma"></slot>
+```
+
+- view 1
+
+```html
+<user-profile :info="userInfo">
+  <div slot="username">{{ userInfo.id }}</div>
+  <template slot="time">{{ userInfo.created }}</template>
+ <div slot="karma">{{ userInfo.karma }}</div>
+</user-profile>
+```
+
+- view 2
+
+```html
+<user-profile :info="fetchedItem">
+  <div slot="username">{{ fetchedItem.user }}</div>
+  <template slot="time">{{ fetchedItem.time_ago }}</template>
+</user-profile>
+```
+
 ## es6
 
 ### template string
