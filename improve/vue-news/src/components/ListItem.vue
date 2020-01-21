@@ -57,6 +57,8 @@ export default {
         return this.$store.state.asks;
       } else if (routeName === 'jobs') {
         return this.$store.state.jobs;
+      } else {
+        return {};
       }
     }
   }
