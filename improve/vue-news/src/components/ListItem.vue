@@ -42,9 +42,10 @@ export default {
     const routeName = this.$route.name;
     let actionName = '';
     // if(this.$route.path === '/news') {
-    if (routeName === 'news') {
-      actionName = 'FETCH_NEWS';
-    } else if (routeName === 'ask') {
+    // if (routeName === 'news') {
+    //   actionName = 'FETCH_NEWS';
+    // } else 
+    if (routeName === 'ask') {
       actionName = 'FETCH_ASK';
     } else if (routeName === 'jobs') {
       actionName = 'FETCH_JOBS';
