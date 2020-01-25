@@ -271,10 +271,111 @@ getters: {
 </user-profile>
 ```
 
-### hoc 하이오더컴포넌트
+#### hoc 하이오더컴포넌트
 
 - 컴포넌트의 로직을 재사용하기 위한 기술
 - 뷰 믹스인 vs 리엑트의 훅
+- 라우터에서 컴포넌트를 기존 사용하던 중복 컴포넌트가 아닌, hoc를 등록
+
+```javascript
+export const router = new VueRouter({
+    routes: [
+      {
+        path: '/news',
+        name: 'news',
+        component: createListView('NewsView')
+      },
+      {
+        path: '/ask',
+        name: 'ask',
+        component: createListView('AskView')
+      },
+      {
+        path: '/jobs',
+        name: 'jobs',
+        component: createListView('JobsView')
+      }
+});
+```
+
+```javascript
+export default function createListView(name) {
+  return {
+    name,
+    created() {
+      bus.$emit('start:spinner');
+      this.$store
+        .dispatch('FETCH_LIST', this.$route.name)
+        .then(() => {
+          bus.$emit('end:spinner');
+        })
+        .catch();
+    },
+    render(createElement) {
+      return createElement(ListView);
+    }
+  };
+}
+```
+
+#### mixins
+
+- 컴포넌트간 공통으로 사용하고 있는 로직을 재사용하는 방법
+
+```javascript
+import bus from '../utils/bus.js';
+
+export default {
+  //재사용할 컴포넌트 옵션
+  created() {
+    bus.$emit('start:spinner');
+    this.$store
+      .dispatch('FETCH_LIST', this.$route.name)
+      .then(() => {
+        bus.$emit('end:spinner');
+      })
+      .catch();
+  }
+}
+```
+
+```html
+<template>
+  <div>
+    <list-item></list-item>
+  </div>
+</template>
+
+<script>
+import ListItem from '../components/ListItem.vue';
+import ListMixin from '../mixins/ListMixin.js';
+
+export default {
+  components: {
+    ListItem
+  },
+  mixins: [ListMixin]
+}
+</script>
+
+<style></style>
+```
+
+#### hoc vs mixins
+
+- hoc는 컴포넌트 레벨이 깊어진다. 컴포넌트 통신이 불편해짐.
+
+```javascript
+//mixin
+export default {
+  //재사용할 컴포넌트 옵션
+}
+
+//hoc
+export default function createItem() {
+  //재사용할 컴포넌트 옵션
+}
+```
 
 ## es6
 
