@@ -271,6 +271,11 @@ getters: {
 </user-profile>
 ```
 
+### hoc 하이오더컴포넌트
+
+- 컴포넌트의 로직을 재사용하기 위한 기술
+- 뷰 믹스인 vs 리엑트의 훅
+
 ## es6
 
 ### template string

@@ -13,5 +13,8 @@ export default {
   },
   SET_ASK_ITEM(state, item) {
     state.askItem = item;
+  },
+  SET_LIST(state, list) {
+    state.list = list;
   }
 }

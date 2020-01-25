@@ -38,32 +38,9 @@
 
 <script>
 export default {
-  // created() {
-  //   const routeName = this.$route.name;
-  //   let actionName = '';
-  //   // if(this.$route.path === '/news') {
-  //   // if (routeName === 'news') {
-  //   //   actionName = 'FETCH_NEWS';
-  //   // } else 
-  //   if (routeName === 'ask') {
-  //     actionName = 'FETCH_ASK';
-  //   } else if (routeName === 'jobs') {
-  //     actionName = 'FETCH_JOBS';
-  //   }
-  //   this.$store.dispatch(actionName);
-  // },
   computed: {
     items() {
-      const routeName = this.$route.name;
-      if (routeName === 'news') {
-        return this.$store.state.news;
-      } else if (routeName === 'ask') {
-        return this.$store.state.asks;
-      } else if (routeName === 'jobs') {
-        return this.$store.state.jobs;
-      } else {
-        return {};
-      }
+      return this.$store.state.list;
     }
   }
 };
