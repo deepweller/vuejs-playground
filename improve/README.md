@@ -394,6 +394,47 @@ export default function createItem() {
   - **created 보다 먼저 호출됨**
   - store의 한 상태를 여러 화면에서 공유하고 있을 때, 화면내용이 겹치는 부분을 해결하는 방법
 
+```javascript
+{
+  path: '/news',
+  name: 'news',
+  component: createListView('NewsView'),
+  beforeEnter: (to, from, next) => {
+    console.log(to);
+    console.log(from);
+    console.log(next);
+    next();
+  }
+},
+```
+
+- `next()` 를 호출해야마나 `to` 로 이동할 수 있음.
+- `this.$route` 나 `this.$store` 의 this는 뷰 컴포넌트 내에서만 사용할 수 있음. 외부에서 사용하기 위해서는 import 해야함
+- `this.$route.name` == beforeEnter의 `to.name`
+
+```javascript
+import { store } from '../store/index.js';
+
+Vue.use(VueRouter);
+
+export const router = new VueRouter({
+  mode: 'history', //# 해시 제거
+  routes: [
+    {
+      path: '/',
+      redirect: '/news'
+    },
+    {
+      path: '/news',
+      name: 'news',
+      component: createListView('NewsView'),
+      beforeEnter: (to, from, next) => {
+        bus.$emit('start:spinner');
+        store.dispatch('FETCH_LIST', to.name)
+          .then(() => {
+//... 생략
+```
+
 ## es6
 
 ### template string

@@ -37,11 +37,16 @@
 </template>
 
 <script>
+import bus from '../utils/bus.js';
+
 export default {
   computed: {
     items() {
       return this.$store.state.list;
     }
+  },
+  mounted() {
+    bus.$emit('end:spinner');
   }
 };
 </script>
