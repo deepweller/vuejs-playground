@@ -377,6 +377,23 @@ export default function createItem() {
 }
 ```
 
+### 라우터 개선
+
+#### 데이터 호출 시점
+
+1. 컴포넌트 라이프 사이클 훅을 이용 (created)
+1. 컴포넌트에 진입하기 전 라우터 네비게이션 가드를 이용
+
+- created
+  - 컴포넌트 인스턴스가 생성되자마자 호출
+  - 뷰의 동작, 데이터 동작, 컴퓨티드, 메서드, 와치, 콜백 등에 접근 가능
+  - 화면에 보여지는 상태는 아님
+- router navigation guard
+  - https://joshua1988.github.io/web-development/vuejs/vue-router-navigation-guards/
+  - 특정 url로 접근하기 전의 동작을 정의하는 속성, 로직
+  - **created 보다 먼저 호출됨**
+  - store의 한 상태를 여러 화면에서 공유하고 있을 때, 화면내용이 겹치는 부분을 해결하는 방법
+
 ## es6
 
 ### template string

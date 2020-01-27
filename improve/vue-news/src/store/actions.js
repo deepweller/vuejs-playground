@@ -1,7 +1,4 @@
 import {
-  fetchNewsList,
-  fetchAskList,
-  fetchJobsList,
   fetchUserInfo,
   fetchAskItem,
   fetchList
@@ -9,22 +6,25 @@ import {
 
 export default {
   FETCH_USER({ commit }, userName) {
-    fetchUserInfo(userName)
+    return fetchUserInfo(userName)
       .then(({ data }) => {
         commit('SET_USER', data);
       })
       .catch();
   },
   FETCH_ASK_ITEM({ commit }, itemId) {
-    fetchAskItem(itemId)
+    return fetchAskItem(itemId)
       .then(({ data }) => {
         commit('SET_ASK_ITEM', data);
       })
       .catch();
   },
   FETCH_LIST({ commit }, pageName) {
-    fetchList(pageName)
-      .then(({ data }) => commit('SET_LIST', data))
+    return fetchList(pageName)
+      .then( response => {
+        commit('SET_LIST', response.data)
+        return response;
+      })
       .catch();
   }
 };

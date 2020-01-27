@@ -9,7 +9,7 @@ export const store = new Vuex.Store({
   state: {
     user: {},
     askItem: {},
-    List: []
+    list: []
   },
   actions,
   mutations,
