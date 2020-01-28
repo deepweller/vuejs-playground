@@ -589,6 +589,30 @@ getId().then(function(id) {
 .catch();
 ```
 
+- async & await : https://joshua1988.github.io/web-development/javascript/js-async-await/
+
+```javascript
+asycn function fetchData() {
+  await getUserList(); //이 함수는 반드시 promise를 리턴해야함
+}
+```
+
+```javascript
+function fetchItems() {
+  return new Promise(function(resolve, reject) {
+    var items = [1, 2, 3];
+    resolve(items)
+  });
+}
+
+async function logItems() {
+  var resultItems = await fetchItems();
+  console.log(resultItems);
+}
+```
+
+
+
 ### Destructuring
 
 - 구조 분해 문법
