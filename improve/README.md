@@ -552,6 +552,43 @@ function fetchData() {
 }
 ```
 
+#### async & await
+
+- callback
+
+```javascript
+$.get('domain.com/id', function(id) {
+  if(id === 'test') {
+  $.get('domain.com/products', function(products) {
+    console.log(products);
+  });
+}  
+});
+```
+
+- promise
+
+```javascript
+function getId() {
+  return new Promise(function(resolve, reject){
+    $.get('domain.com/id', function(id) {
+      resolve(id);
+    })
+  })
+}
+
+getId().then(function(id) {
+  if(id === 'test') {
+  $.get('domain.com/products', function(products) {
+    return new Promise(...)
+  });
+})
+.then(function(products) {
+  console.log(products);
+})
+.catch();
+```
+
 ### Destructuring
 
 - 구조 분해 문법
