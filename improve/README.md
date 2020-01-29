@@ -590,6 +590,7 @@ getId().then(function(id) {
 ```
 
 - async & await : https://joshua1988.github.io/web-development/javascript/js-async-await/
+- async 함수 내에는 await가 반드시 있어야함.
 
 ```javascript
 asycn function fetchData() {
@@ -611,7 +612,39 @@ async function logItems() {
 }
 ```
 
+- callback, async 비교
 
+```javascript
+methods: {
+  //callback
+  loginUser1() {
+    axios.get('https://jsonplaceholder.typicode.com/user/1')
+      .then(response => {
+        if(response.data.id === 1) {
+          console.log('사용자가 인증되었습니다.');
+          axios.get('https://jsonplaceholder.typicode.com/todos')
+            .then(response => {
+              this.items = response.data;
+            });
+        }
+    });
+    .catch(error => console.log(error));
+  },
+  //async await
+  async loginUser2() {
+    try {
+      var response = await axios.get('https://jsonplaceholder.typicode.com/user/1');
+      if(response.data.id === 1) {
+        console.log('사용자가 인증되었습니다.');
+        var list = await axios.get('https://jsonplaceholder.typicode.com/todos');
+        this.items = list.data;
+      }
+    } catch(error) {
+      console.log(error);
+    }
+  }
+}
+```
 
 ### Destructuring
 
