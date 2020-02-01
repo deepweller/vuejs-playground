@@ -3,11 +3,12 @@ import Layout from '@/layout'
 const customRouter = {
   path: '/custom',
   component: Layout,
-  redirect: '/custom/complex-table',
+  redirect: '/custom/sample-form',
   name: 'Custom',
   meta: {
     title: 'Custom',
-    icon: 'people'
+    icon: 'people',
+    affix: true
   },
   children: [
     {

@@ -1,9 +1,10 @@
 <template>
   <div class="app-container">
-
-    <article-detail :is-edit="false" />
-
     <div class="filter-container">
+      <div class="filter-item">
+        <el-date-picker v-model="listQuery.startDate" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="Select date and time" />
+        <el-date-picker v-model="listQuery.endDate" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="Select date and time" />
+      </div>
       <el-input v-model="listQuery.title" placeholder="Title" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
       <el-select v-model="listQuery.importance" placeholder="Imp" clearable style="width: 90px" class="filter-item">
         <el-option v-for="item in importanceOptions" :key="item" :label="item" :value="item" />
@@ -154,7 +155,6 @@ import { fetchList, fetchPv, createArticle, updateArticle } from '@/api/article'
 import waves from '@/directive/waves' // waves directive
 import { parseTime } from '@/utils'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
-import ArticleDetail from '@/views/example/components/ArticleDetail'
 
 const calendarTypeOptions = [
   { key: 'CN', display_name: 'China' },
@@ -171,7 +171,7 @@ const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
 
 export default {
   name: 'ComplexTable',
-  components: { Pagination, ArticleDetail },
+  components: { Pagination },
   directives: { waves },
   filters: {
     statusFilter(status) {
@@ -198,7 +198,9 @@ export default {
         importance: undefined,
         title: undefined,
         type: undefined,
-        sort: '+id'
+        sort: '+id',
+        startDate: undefined,
+        endDate: undefined
       },
       importanceOptions: [1, 2, 3],
       calendarTypeOptions,
