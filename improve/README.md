@@ -435,6 +435,52 @@ export const router = new VueRouter({
 //... 생략
 ```
 
+## 배포
+
+### command
+
+**`npm run build`**
+
+- index.html, favicon
+- css, fonts, img, js
+- package.json 내에 scripts 부분에 npm run 명령어가 정의되어 있음
+
+### test deploy
+
+- https://www.netlify.com/ : 호스팅 사이트
+- github repos 와 연동하여 배포 가능
+- jenkins와 비슷하게 설정 가능
+  - target branch
+  - build command
+  - target dir
+  - build, deploy log
+
+### router 관련 설정
+
+- vue-cli deploy guide : https://cli.vuejs.org/guide/deployment.html#netlify
+- `/public/_redirects`
+  - spa는 클라이언트사이드랜더링이기 때문에 라우팅경로에 대한 정보는 클라이언트에 있으며, 서버에서 알 수 없음
+  - 브라우저만 알고 있는 정보들을 서버에 설정해줘야함
+    - netlify: `/* /index.html 200` : 모든 요청을 index.html로 전달
+
+### env config
+
+- 환경변수
+- `.env` 파일 생성
+  - webpack : DefinePlugin 사용
+  - vue-cli 3 : 환경변수 name에 `VUE_` prefix 추가
+
+```env
+# Test env
+APP_TITLE=TITLE
+VUE_APP_TITLE=TITLE
+```
+
+```javascript
+console.log(process.env.APP_TITLE); //undefined
+console.log(process.env.VUE_APP_TITLE); //TITLE
+```
+
 ## es6
 
 ### template string
