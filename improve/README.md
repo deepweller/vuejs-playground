@@ -483,6 +483,7 @@ export default {
         {{ item }}
       </li>
     </ul>
+    <!-- 별도 메서드 구현하지 않고 태그 내에서 바로 이벤트 발생 시킬 수 있음. -->
     <button @click="$emit('renew')">renew items</button>
   </div>
 </template>
@@ -491,7 +492,7 @@ export default {
 export default {
   props: {
     items: {
-      type: Array,
+      type: Array, //type 정의
       required: true,
     },
   },
@@ -511,7 +512,7 @@ export default {
 <script>
 export default {
   props: {
-    title: String,
+    title: String, //type 정의
   }
 }
 </script>
@@ -519,9 +520,66 @@ export default {
 
 ### Slot - 마크업 확장이 가능한 컴포넌트
 
+- 정의하는 곳에서 dom 구조 및 스타일 등을 자유롭게 정의할 수 있음
+- props
+  - 유연하지 않음. 요구사항이 변경되면 컴포넌트를 못쓰게 됨.
+- slot
+  - 컴포넌트를 유연하게 사용할 수 있음.
+  - slot만 추가해서 해당 부분에 추가적인 내용을 넣으면 되기 때문
+- app.vue
+
+```html
+<template>
+  <div>
+    <ul>
+      <!-- <item></item> : 일반적인 컴포넌트 사용, slot은 컴포넌트 태그 내에 내용이 있음. -->
+      <item>아이템 1</item>
+      <item>아이템 2 <button>click me</button></item>
+      <item>아이템 3 <div><img src"./test.png"></div></item>
+      <item>아이템 4 <div style="color: blue;">text</div></item>
+      <item>아이템 5</item>
+    </ul>
+  </div>
+</template>
+
+<script>
+import Item from './Item.vue';
+export default {
+  components: {
+    Item,
+  }
+}
+</script>
+```
+
+- item.vue
+
+```html
+<template>
+  <li>
+    <slot>
+      <!-- 컴포넌트 태그 내에 들어가있는 내용이 표시되는 영역  -->
+      <!-- NOTE: 등록하는 곳에서 정의할 화면 영역 -->
+    </slot>
+  </li>
+</template>
+```
+
 ### Controlled - 결합력이 높은 컴포넌트
 
+```html
+```
+
+```html
+```
+
 ### Renderless - 데이터 처리 컴포넌트
+
+```html
+```
+
+```html
+```
 
 ## 배포
 
