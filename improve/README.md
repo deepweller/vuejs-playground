@@ -435,6 +435,94 @@ export const router = new VueRouter({
 //... 생략
 ```
 
+## 컴포넌트 디자인패턴
+
+### Common - 기본적인 컴포넌트 등록과 컴포넌트 통신
+
+- 일반적인 컴포넌트 등록과 통신
+- App.vue
+
+```html
+<template>
+  <div>
+    <app-header :title="appTitle"></app-header>
+    <app-content :items="items" @renew="renewItems"></app-content>
+  </div>
+</template>
+
+<script>
+import AppHeader from './components/AppHeader.vue';
+import AppContent from './components/AppContent.vue';
+export default {
+  components: {
+    AppHeader,
+    AppContent,
+  },
+  data() {
+    return {
+      appTitle: 'Common Approach',
+      items: [10, 20, 30],
+    }
+  },
+  methods: {
+    renewItems() {
+      this.items = [40, 50, 60];
+    },
+  },
+}
+</script>
+```
+
+- content.vue
+
+```html
+<template>
+  <div>
+    <ul>
+      <li v-for="item in items">
+        {{ item }}
+      </li>
+    </ul>
+    <button @click="$emit('renew')">renew items</button>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    items: {
+      type: Array,
+      required: true,
+    },
+  },
+}
+</script>
+```
+
+- header.vue
+
+```html
+<template>
+  <header>
+    <h1>{{ title }}</h1>
+  </header>
+</template>
+
+<script>
+export default {
+  props: {
+    title: String,
+  }
+}
+</script>
+```
+
+### Slot - 마크업 확장이 가능한 컴포넌트
+
+### Controlled - 결합력이 높은 컴포넌트
+
+### Renderless - 데이터 처리 컴포넌트
+
 ## 배포
 
 ### command
