@@ -567,10 +567,52 @@ export default {
 
 ### Controlled - 결합력이 높은 컴포넌트
 
-```html
-```
+- 컴포넌트를 아주 세부적으로 나누는 경우 사용
+- props로 내린 값을 하위 컴포넌트에서 v-model로 사용할 수 없음 > props 값을 하위컴포넌트에서 변경하면 안되기 때문(하위 컴포넌트는 emit을 사용해야함)
+- v-model로 값을 내리면 value로 하위컴포넌트로 전달되고 해당 값으로 변경하는 방법
+- app.vue
 
 ```html
+<template>
+  <check-box v-model="checked"></check-box>
+</template>
+
+<script>
+import CheckBox from './components/CheckBox.vue';
+export default {
+  components: {
+    CheckBox
+  },
+  data(){
+    return{
+       checked: false
+    }
+  },
+  
+}
+</script>
+```
+
+- checkbox.vue
+
+```html
+<template>
+  <input type="checkbox" :value="value" @click="toggleCheckBox"/>
+</template>
+
+<script>
+export default {
+  //v-model
+  //@input 이벤트
+  //:value 값 
+  props: ['value'], //false
+  methods:{
+    toggleCheckBox(){
+      this.$emit('input',!this.value)
+    }
+  }
+}
+</script>
 ```
 
 ### Renderless - 데이터 처리 컴포넌트
