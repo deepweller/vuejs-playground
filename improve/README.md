@@ -617,10 +617,104 @@ export default {
 
 ### Renderless - 데이터 처리 컴포넌트
 
-```html
+- render() : 컴포넌트를 그리는 역할
+  - `this.$scopedSlots` : 컴포넌트의 표현식
+  - 아래 3개가 동일한 내용
+
+```javascript
+{{ message }}
+
+data: {
+  message: 'hello'
+}
 ```
 
+```javascript
+...
+template: '<p>{{ message }}</p>'
+```
+
+```javascript
+render: function(createElement) {
+  //return createElement('태그이름', '태그속성', '하위태그내용');
+  return createElement('p', this.message);
+}
+```
+
+```javascript
+new Vue({
+  render: h => h(App), // vitual dom의 약자가 h = createElement
+  //동일한 내용
+  render: function(createElement) {
+    return createElement(App);
+  }
+}).$mound('#app');
+```
+
+- 표현을 하지 않는 컴포넌트
+- 데이터만 제공(data provider)
+- App.vue
+
 ```html
+<template>
+  <div>
+    <fetch-data url="https://jsonplaceholder.typicode.com/users/1">
+      <!-- ... -->
+      <div slot-scope="{response, loading}">
+        <div v-if="!loading">
+          <p>name : {{response.name}}</p>
+          <p>email : {{response.email}}</p>
+        </div>
+        <div v-if="loading">loading...</div>
+      </div>
+      
+    </fetch-data>
+  </div>
+</template>
+
+<script>
+import FetchData from './components/FetchData.vue'
+export default {
+  components: {
+    FetchData
+  },
+}
+</script>
+```
+
+- FetchData.vue
+
+```html
+  
+<script>
+import axios from 'axios';
+export default {
+  props: ['url'],
+  data() {
+    return {
+      response: null,
+      loading: true,
+    }
+  },
+  created() {
+    axios.get(this.url)
+      .then(response => {
+        this.response = response.data;
+        this.loading = false;
+      })
+      .catch(error => {
+        alert('[ERROR] fetching the data', error);
+        console.log(error);
+      });
+  },
+  render() {
+    return this.$scopedSlots.default({
+      response: this.response,
+      loading: this.loading,
+    });
+  },
+}
+</script>
 ```
 
 ## 배포
